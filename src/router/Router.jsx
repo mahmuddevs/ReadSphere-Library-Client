@@ -5,6 +5,11 @@ import Home from "../pages/home/Home";
 import Error from "../pages/error/Error";
 import Login from "../pages/auth/login/Login";
 import Register from "../pages/auth/register/Register";
+import PrivateAlt from "./PrivateAlt";
+import AddBooks from "../pages/add-book/AddBooks";
+import AllBooks from "../pages/all-books/AllBooks";
+import BorrowedBooks from "../pages/borrowed-books/BorrowedBooks";
+import Private from "./Private";
 
 const router = createBrowserRouter([
     {
@@ -15,7 +20,19 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />
-            }
+            },
+            {
+                path: '/all-books',
+                element: <Private><AllBooks /></Private>
+            },
+            {
+                path: '/add-book',
+                element: <Private><AddBooks /></Private>
+            },
+            {
+                path: '/borrowed-books',
+                element: <Private><BorrowedBooks /></Private>
+            },
         ]
     },
     {
@@ -28,11 +45,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/auth/login',
-                element: <Login />
+                element: <PrivateAlt><Login /></PrivateAlt>
             },
             {
                 path: '/auth/register',
-                element: <Register />
+                element: <PrivateAlt><Register /></PrivateAlt>
             },
         ]
     }

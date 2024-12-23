@@ -16,9 +16,9 @@ const Header = () => {
     const navItems = (
         <>
             <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/visas">All Books</NavLink></li>
-            <li><NavLink to="/add-visa">Add Book</NavLink></li>
-            <li><NavLink to="/my-added-visas">Borrowed Books</NavLink></li>
+            <li><NavLink to="/all-books">All Books</NavLink></li>
+            <li><NavLink to="/add-book">Add Book</NavLink></li>
+            <li><NavLink to="/borrowed-books">Borrowed Books</NavLink></li>
         </>
     )
 
