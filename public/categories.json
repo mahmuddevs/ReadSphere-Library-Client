@@ -1,42 +1,34 @@
 [
     {
         "categoryName": "Fiction",
-        "description": "Explore imaginative and compelling stories that take you to fantastical worlds.",
-        "image": "https://images.unsplash.com/photo-1512412046878-9c227e015dec?fit=crop&w=500&q=80"
+        "description": "Explore imaginative and compelling stories that take you to fantastical worlds."
     },
     {
         "categoryName": "Thriller",
-        "description": "Dive into fast-paced, suspenseful narratives filled with twists and turns.",
-        "image": "https://images.unsplash.com/photo-1523601240013-203a682f052e?fit=crop&w=500&q=80"
+        "description": "Dive into fast-paced, suspenseful narratives filled with twists and turns."
     },
     {
         "categoryName": "History",
-        "description": "Learn about significant events and figures that shaped the world we live in.",
-        "image": "https://images.unsplash.com/photo-1565072582297-1d1604e6d61d?fit=crop&w=500&q=80"
+        "description": "Learn about significant events and figures that shaped the world we live in."
     },
     {
         "categoryName": "Science Fiction",
-        "description": "Experience futuristic adventures and explore advanced technologies and alien worlds.",
-        "image": "https://images.unsplash.com/photo-1508814462803-48b9eb97fc62?fit=crop&w=500&q=80"
+        "description": "Experience futuristic adventures and explore advanced technologies and alien worlds."
     },
     {
         "categoryName": "Drama",
-        "description": "Get immersed in emotionally gripping stories of human relationships and conflicts.",
-        "image": "https://images.unsplash.com/photo-1536348949799-23d889ccd4eb?fit=crop&w=500&q=80"
+        "description": "Get immersed in emotionally gripping stories of human relationships and conflicts."
     },
     {
         "categoryName": "Romance",
-        "description": "Indulge in heartwarming tales of love, relationships, and happy endings.",
-        "image": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?fit=crop&w=500&q=80"
+        "description": "Indulge in heartwarming tales of love, relationships, and happy endings."
     },
     {
         "categoryName": "Fantasy",
-        "description": "Step into magical realms filled with mythical creatures and epic quests.",
-        "image": "https://images.unsplash.com/photo-1504198266285-165cec118ae8?fit=crop&w=500&q=80"
+        "description": "Step into magical realms filled with mythical creatures and epic quests."
     },
     {
         "categoryName": "Self-Help",
-        "description": "Find guidance, motivation, and strategies for personal development and success.",
-        "image": "https://images.unsplash.com/photo-1553729459-efe14ef6055d?fit=crop&w=500&q=80"
+        "description": "Find guidance, motivation, and strategies for personal development and success."
     }
 ]

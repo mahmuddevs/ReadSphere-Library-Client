@@ -1,7 +1,7 @@
 import ReactStars from "react-rating-stars-component";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const BookCard = ({ _id, image, name, author, category, quantity, rating }) => {
-
+    const { pathname } = useLocation()
     return (
         <div className="md:max-w-sm rounded overflow-hidden shadow-lg bg-white">
             <div>
@@ -30,9 +30,11 @@ const BookCard = ({ _id, image, name, author, category, quantity, rating }) => {
                     <Link to={`/book/${_id}`} className="btn btn-primary btn-sm">
                         Details
                     </Link>
-                    <Link to={`/book/update/${_id}`} className="btn btn-neutral btn-sm">
-                        Update
-                    </Link>
+                    {pathname === "/books/Fiction" ?
+                        "" :
+                        <Link to={`/book/update/${_id}`} className="btn btn-neutral btn-sm">
+                            Update
+                        </Link>}
                 </div>
             </div>
         </div>

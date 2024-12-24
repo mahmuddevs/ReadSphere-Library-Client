@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async"
 import BookCard from "../../components/BookCard"
 import { toast } from 'react-toastify'
 import useAxiosSecure from "../../hook/useAxiosSecure"
+import Spinner from "../../components/Spinner"
 
 const AllBooks = () => {
     const [books, setBooks] = useState([])
@@ -32,11 +33,15 @@ const AllBooks = () => {
                     <p className="">Browse through our extensive library of books across various genres and categories. Find your next great read today.</p>
                 </section>
                 <section>
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                        {books.map((book) => {
-                            return <BookCard key={book._id} {...book} />
-                        })}
-                    </div>
+                    {loading ? (
+                        <Spinner />
+                    ) : (
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                            {books?.map((book) => {
+                                return <BookCard key={book._id} {...book} />
+                            })}
+                        </div>
+                    )}
                 </section>
             </main>
         </>

@@ -1,8 +1,8 @@
-const UpdateForm = ({ register, handleSubmit, errors, categories }) => {
+const UpdateForm = ({ register, handleSubmit, errors, categories, formRef }) => {
     return (
         <div className="grid place-items-center">
             <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl my-8">
-                <form onSubmit={handleSubmit} className="card-body grid grid-cols-2">
+                <form onSubmit={handleSubmit} ref={formRef} className="card-body grid grid-cols-2">
                     <div className="form-control col-span-2">
                         <label className="label">
                             <span className="label-text">Image</span>
