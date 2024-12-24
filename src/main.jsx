@@ -7,6 +7,7 @@ import AuthProvider from './contexts/AuthProvider'
 import { HelmetProvider } from 'react-helmet-async'
 import { ToastContainer } from 'react-toastify'
 
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HelmetProvider>

@@ -9,6 +9,16 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [daisyui],
+  plugins: [
+    daisyui,
+    function ({ addBase }) {
+      addBase(
+        {
+          'h2': { color: '#111111', fontSize: '20px', fontWeight: 700 },
+          'p': { fontSize: '1.125rem', fontWeight: 400, lineHeight: "26px" }
+        }
+      )
+    }
+  ],
 }
 
