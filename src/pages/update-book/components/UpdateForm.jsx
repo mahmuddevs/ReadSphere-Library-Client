@@ -1,4 +1,4 @@
-const AddBookForm = ({ register, handleSubmit, errors, categories }) => {
+const UpdateForm = ({ register, handleSubmit, errors, categories }) => {
     return (
         <div className="grid place-items-center">
             <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl my-8">
@@ -61,15 +61,6 @@ const AddBookForm = ({ register, handleSubmit, errors, categories }) => {
                         </select>
                         {errors.category && <p className="text-red-500 text-sm font-semibold">{errors.category.message}</p>}
                     </div>
-                    <div className="form-control col-span-2">
-                        <label className="label">
-                            <span className="label-text">Short Description</span>
-                        </label>
-                        <textarea className="textarea textarea-bordered h-32" {...register("description", {
-                            required: "Description Is Required"
-                        })} placeholder="Write Short Description About the Book"></textarea>
-                        {errors.description && <p className="text-red-500 text-sm font-semibold">{errors.description.message}</p>}
-                    </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Rating</span>
@@ -88,16 +79,6 @@ const AddBookForm = ({ register, handleSubmit, errors, categories }) => {
                         })} placeholder="Rating" className="input input-bordered" />
                         {errors.rating && <p className="text-red-500 text-sm font-semibold">{errors.rating.message}</p>}
                     </div>
-                    <div className="form-control col-span-2">
-                        <label className="label">
-                            <span className="label-text">Book Content</span>
-                        </label>
-                        <textarea className="textarea textarea-bordered h-32" {...register("bookContent", {
-                            required: "Book Content Is Required"
-                        })} placeholder="Write Contents of the Book"></textarea>
-                        {errors.bookContent && <p className="text-red-500 text-sm font-semibold">{errors.bookContent.message}</p>}
-                    </div>
-
                     <div className="form-control mt-6 col-span-2">
                         <button type="submit" className="btn btn-primary">Add Book</button>
                     </div>
@@ -107,4 +88,4 @@ const AddBookForm = ({ register, handleSubmit, errors, categories }) => {
     )
 }
 
-export default AddBookForm
+export default UpdateForm

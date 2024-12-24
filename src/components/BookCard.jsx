@@ -1,25 +1,12 @@
 import ReactStars from "react-rating-stars-component";
-const BookCard = () => {
-    const book = {
-        imageUrl: '/placeholder.svg?height=300&width=200',
-        name: 'The Great Gatsby',
-        author: 'F. Scott Fitzgerald',
-        category: 'Classic Literature',
-        quantity: 5,
-        rating: 3
-    }
+import { Link } from "react-router-dom";
+const BookCard = ({ _id, image, name, author, category, quantity, rating }) => {
 
-    const { imageUrl,
-        name,
-        author,
-        category,
-        quantity,
-        rating } = book
     return (
-        <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+        <div className="md:max-w-sm rounded overflow-hidden shadow-lg bg-white">
             <div>
                 <img
-                    src='https://w7.pngwing.com/pngs/808/357/png-transparent-textbook-a-thick-book-painted-text-comic-book-thumbnail.png'
+                    src={image}
                     alt={`Cover of ${name}`}
                     layout="fill"
                     className="w-full h-60"
@@ -39,9 +26,14 @@ const BookCard = () => {
                         activeColor="#ffd700"
                     />
                 </div>
-                <button className="btn btn-primary btn-sm">
-                    Details
-                </button>
+                <div className="space-x-4">
+                    <Link to={`/book/${_id}`} className="btn btn-primary btn-sm">
+                        Details
+                    </Link>
+                    <Link to={`/book/update/${_id}`} className="btn btn-neutral btn-sm">
+                        Update
+                    </Link>
+                </div>
             </div>
         </div>
     )

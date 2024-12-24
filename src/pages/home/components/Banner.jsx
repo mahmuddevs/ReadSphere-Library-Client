@@ -4,14 +4,11 @@ import { Navigation } from 'swiper/modules';
 const Banner = () => {
     return (
         <section className="container mx-auto relative my-6">
-            {/* Centered Text */}
             <div className="absolute inset-0 z-10 pointer-events-none flex flex-col gap-4 justify-center items-center text-white w-10/12 mx-auto lg:w-full text-center">
                 <h1 className="text-2xl md:text-4xl font-bold">Welcome to Your Digital Library Hub</h1>
                 <p className='font-medium'>Discover, borrow, and manage books effortlessly with our Library Management System. Your gateway to endless knowledge.</p>
-                <button className='btn btn-primary'>Explore More</button>
             </div>
 
-            {/* Swiper Slider */}
             <Swiper
                 navigation={true}
                 modules={[Navigation]}

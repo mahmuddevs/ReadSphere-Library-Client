@@ -1,19 +1,31 @@
 import axios from "axios";
 import { useEffect } from "react";
+import useAuth from "./useAuth";
+import { useNavigate } from "react-router-dom";
 
 const instance = axios.create({
     baseURL: 'http://localhost:3000',
     withCredentials: true
 });
 const useAxiosSecure = () => {
+    const { logOut } = useAuth()
+    const navigate = useNavigate()
     useEffect(() => {
-        axios.interceptors.response.use((response) => {
+        instance.interceptors.response.use((response) => {
             return response
         }, (error) => {
+            if (error.status === 401 || error.status === 403) {
+                console.log('Unauthorized Activity')
+                logOut().then(() => {
+                    console.log("User Logged Out");
+                    navigate('/');
+                })
+                    .catch(() => {
+                        console.log("Something Went Wrong");
+                    });
+            }
 
-
-            //401 and 403
-            return Promise.reject(error);
+            return Promise.reject(error); s
         })
 
     }, [])
