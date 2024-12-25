@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async"
 import { toast } from "react-toastify"
 import BookCard from "../../components/BookCard"
 import Spinner from "../../components/Spinner"
+import NoData from "../../components/NoData"
 
 const ByCategory = () => {
     const { category } = useParams()
@@ -27,7 +28,7 @@ const ByCategory = () => {
     return (
         <>
             <Helmet>
-                <title>By Category - ReadSphere</title>
+                <title>{`${category}`} - ReadSphere</title>
             </Helmet>
             <main className="w-11/12 md:container mx-auto">
                 <section className="text-center my-16">
@@ -37,11 +38,19 @@ const ByCategory = () => {
                     {loading ? (
                         <Spinner />
                     ) : (
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                            {books?.map((book) => {
-                                return <BookCard key={book._id} {...book} />
-                            })}
-                        </div>
+                        <>
+                            {
+                                books.length > 0 ? (
+                                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                                        {books?.map((book) => {
+                                            return <BookCard key={book._id} {...book} />
+                                        })}
+                                    </div>
+                                ) : (
+                                    <NoData />
+                                )
+                            }
+                        </>
                     )}
                 </section>
             </main>

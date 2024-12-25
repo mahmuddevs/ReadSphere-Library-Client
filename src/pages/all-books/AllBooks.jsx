@@ -6,6 +6,7 @@ import useAxiosSecure from "../../hook/useAxiosSecure"
 import Spinner from "../../components/Spinner"
 import { Link } from "react-router-dom"
 import useAxios from "../../hook/useAxios"
+import NoData from "../../components/NoData"
 
 const AllBooks = () => {
     const [books, setBooks] = useState([])
@@ -38,6 +39,7 @@ const AllBooks = () => {
     }
 
     const handleAvailableBooks = () => {
+        setLoading(true)
         axiosBase.get("/books/available-books")
             .then((res) => {
                 setBooks(res.data)
@@ -71,49 +73,61 @@ const AllBooks = () => {
                                 </select>
                                 <button onClick={handleAvailableBooks} className="btn btn-accent">Show Available Books</button>
                             </div>
-                            {cardView ? (
-                                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                                    {books?.map((book) => {
-                                        return <BookCard key={book._id} {...book} />
-                                    })}
-                                </div>
-                            ) : (
-                                <div className="overflow-x-auto">
-                                    <table className="table table-zebra">
-                                        <thead>
-                                            <tr>
-                                                <th></th>
-                                                <th>Name</th>
-                                                <th>Author</th>
-                                                <th>Category</th>
-                                                <th>Quantity</th>
-                                                <th>Rating</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {books?.map((book, index) => {
-                                                return <tr key={book._id}>
-                                                    <th>{index + 1}</th>
-                                                    <th>{book.name}</th>
-                                                    <th>{book.author}</th>
-                                                    <th>{book.category}</th>
-                                                    <th>{book.quantity}</th>
-                                                    <th>{book.rating}</th>
-                                                    <th className="space-x-2">
-                                                        <Link to={`/book/${book._id}`} className="btn btn-primary btn-sm">
-                                                            Details
-                                                        </Link>
-                                                        <Link to={`/book/update/${book._id}`} className="btn btn-neutral btn-sm">
-                                                            Update
-                                                        </Link>
-                                                    </th>
-                                                </tr>
-                                            })}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            )}
+                            <>
+                                {
+                                    books.length > 0 ? (
+                                        <>
+                                            {
+                                                cardView ? (
+                                                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                                                        {books?.map((book) => {
+                                                            return <BookCard key={book._id} {...book} />
+                                                        })}
+                                                    </div>
+                                                ) : (
+                                                    <div className="overflow-x-auto">
+                                                        <table className="table table-zebra">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th>Name</th>
+                                                                    <th>Author</th>
+                                                                    <th>Category</th>
+                                                                    <th>Quantity</th>
+                                                                    <th>Rating</th>
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {books?.map((book, index) => {
+                                                                    return <tr key={book._id}>
+                                                                        <th>{index + 1}</th>
+                                                                        <th>{book.name}</th>
+                                                                        <th>{book.author}</th>
+                                                                        <th>{book.category}</th>
+                                                                        <th>{book.quantity}</th>
+                                                                        <th>{book.rating}</th>
+                                                                        <th className="space-x-2">
+                                                                            <Link to={`/book/${book._id}`} className="btn btn-primary btn-sm">
+                                                                                Details
+                                                                            </Link>
+                                                                            <Link to={`/book/update/${book._id}`} className="btn btn-neutral btn-sm">
+                                                                                Update
+                                                                            </Link>
+                                                                        </th>
+                                                                    </tr>
+                                                                })}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                )
+                                            }
+                                        </>
+                                    ) : (
+                                        <NoData />
+                                    )
+                                }
+                            </>
                         </>
                     )}
                 </section>

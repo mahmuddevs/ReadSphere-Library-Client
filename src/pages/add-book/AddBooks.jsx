@@ -31,6 +31,9 @@ const AddBooks = () => {
                 <title>Add Book - ReadSphere</title>
             </Helmet>
             <main>
+                <div className="w-11/12 md:container mx-auto my-8 text-center">
+                    <h2 className="text-3xl">Add Book</h2>
+                </div>
                 <AddBookForm register={register} handleSubmit={handleSubmit(onSubmit)} errors={errors} categories={categories} />
             </main>
         </>
