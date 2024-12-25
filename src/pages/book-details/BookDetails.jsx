@@ -60,12 +60,16 @@ const BookDetails = () => {
 
         axiosBase.post(`/books/borrow-book`, borrowedBook)
             .then(() => {
-                toast.success("Book Updated Successfully")
+                toast.success("Book Borrowed Successfully")
                 formRef.current.reset()
+                setBook(prevBook => ({
+                    ...prevBook,
+                    quantity: prevBook.quantity - 1
+                }))
                 modalRef.current.close()
                 setBorrowed(true)
             })
-            .catch(() => toast.warn("Failed to update book"));
+            .catch(() => toast.warn("Failed to Borrowed Book"));
     };
 
     return (
@@ -121,7 +125,7 @@ const BookDetails = () => {
                                         handleSubmit={handleSubmit(onSubmit)}
                                         errors={errors}
                                         formRef={formRef} />
-                                    <button disabled={borrowed} onClick={handleShowModal} className="btn btn-primary w-32 text-base mt-6">Borrow</button>
+                                    <button disabled={borrowed || book?.quantity === 0} onClick={handleShowModal} className="btn btn-primary w-32 text-base mt-6">Borrow</button>
                                 </div>
                             </div >
                         </div >

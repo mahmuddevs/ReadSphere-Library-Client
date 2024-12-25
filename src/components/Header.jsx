@@ -71,7 +71,7 @@ const Header = () => {
                                             className="!p-2 !rounded-lg !bg-gray-700 !text-white !w-36 !h-24" clickable
                                         >
                                             <div className="flex flex-col justify-center items-center space-y-2 py-2">
-                                                <p className="font-bold !text-base">{user?.displayName}</p>
+                                                <p className="font-bold !text-sm">{user?.displayName}</p>
                                                 <button
                                                     onClick={handleLogout}
                                                     className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"

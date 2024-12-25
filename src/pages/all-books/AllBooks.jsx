@@ -107,7 +107,7 @@ const AllBooks = () => {
                                                                         <th>{book.category}</th>
                                                                         <th>{book.quantity}</th>
                                                                         <th>{book.rating}</th>
-                                                                        <th className="space-x-2">
+                                                                        <th className="flex flex-col md:flex-row gap-2">
                                                                             <Link to={`/book/${book._id}`} className="btn btn-primary btn-sm">
                                                                                 Details
                                                                             </Link>

@@ -1,7 +1,10 @@
 import ReactStars from "react-rating-stars-component"
-const BorrowedCard = ({ bookDetails, requestDate, returnDate }) => {
+import moment from 'moment'
+
+const BorrowedCard = ({ _id, bookDetails, requestDate, returnDate, handleReturnBook }) => {
     const { author, category, image, name, rating } = bookDetails
-    console.log(bookDetails.author)
+
+    const requestDateSt = moment(requestDate).format('YYYY-MM-DD')
 
     return (
         <div className="max-w-sm bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
@@ -24,12 +27,15 @@ const BorrowedCard = ({ bookDetails, requestDate, returnDate }) => {
                     />
                 </div>
                 <div className="mt-4">
-                    <p className="text-sm text-gray-500">
-                        <span className="font-semibold text-gray-700">Borrowed Date:</span> {requestDate}
+                    <p className="text-sm font-medium text-gray-500">
+                        <span className="font-semibold text-gray-700">Borrowed Date:</span> {requestDateSt}
                     </p>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm font-medium text-gray-500">
                         <span className="font-semibold text-gray-700">Return Date:</span> {returnDate}
                     </p>
+                </div>
+                <div className="mt-4">
+                    <button onClick={() => { handleReturnBook(_id) }} className="btn btn-primary">Return Book</button>
                 </div>
             </div>
         </div>

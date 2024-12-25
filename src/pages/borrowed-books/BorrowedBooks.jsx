@@ -6,11 +6,13 @@ import { toast } from 'react-toastify'
 import useAuth from "../../hook/useAuth"
 import BorrowedCard from "./components/BorrowedCard"
 import Spinner from "../../components/Spinner"
+import useAxios from "../../hook/useAxios"
 
 const BorrowedBooks = () => {
     const [borrowedBooks, setBorrowedBooks] = useState([])
     const [loading, setLoading] = useState(false)
     const axiosSecure = useAxiosSecure()
+    const axiosBase = useAxios()
 
     const { user } = useAuth()
     const email = user?.email
@@ -27,6 +29,20 @@ const BorrowedBooks = () => {
                 toast.error("Data loading failed")
             })
     }, [])
+
+    const handleReturnBook = (id) => {
+        axiosBase.get(`/books/return-book/${id}`)
+            .then((res) => {
+                if (res.data.deletedCount > 0) {
+                    const updatedData = borrowedBooks.filter((book) => { book._id !== id })
+                    setBorrowedBooks(updatedData)
+                    toast.warn("Book Has Been Returned")
+                }
+            })
+            .catch((err) => {
+                toast.error("Book Return Failed")
+            })
+    }
 
     return (
         <>
@@ -48,7 +64,7 @@ const BorrowedBooks = () => {
                                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                                             {
                                                 borrowedBooks?.map((book) => {
-                                                    return <BorrowedCard key={book._id} {...book} />
+                                                    return <BorrowedCard key={book._id} {...book} handleReturnBook={handleReturnBook} />
                                                 })}
                                         </div>
                                     </>
