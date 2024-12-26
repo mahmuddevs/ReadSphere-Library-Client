@@ -23,6 +23,7 @@ const UpdateBook = () => {
             .then(res => setCategories(res.data))
             .catch(() => toast.error("Failed to load categories"));
     }, []);
+
     useEffect(() => {
         setLoading(true);
         axiosBase.post('/books/single-book', { id })
@@ -35,7 +36,7 @@ const UpdateBook = () => {
                 toast.error("Data loading failed");
                 setLoading(false);
             });
-    }, [id, axiosBase, reset]);
+    }, [id]);
 
     const onSubmit = (data) => {
         axiosBase.put(`/books/update-book/${id}`, data)

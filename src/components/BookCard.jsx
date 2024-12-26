@@ -9,7 +9,7 @@ const BookCard = ({ _id, image, name, author, category, quantity, rating }) => {
                     src={image}
                     alt={`Cover of ${name}`}
                     layout="fill"
-                    className="w-full h-60"
+                    className="w-full h-60 object-contain"
                 />
             </div>
             <div className="px-6 py-4">
