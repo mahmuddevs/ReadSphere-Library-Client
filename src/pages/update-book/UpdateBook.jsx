@@ -4,7 +4,7 @@ import useAxios from "../../hook/useAxios";
 import UpdateForm from "./components/UpdateForm";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Spinner from "../../components/Spinner";
 import { toast } from 'react-toastify';
 
@@ -16,6 +16,7 @@ const UpdateBook = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [categories, setCategories] = useState([]);
     const axiosBase = useAxios()
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -40,11 +41,14 @@ const UpdateBook = () => {
 
     const onSubmit = (data) => {
         axiosBase.put(`/books/update-book/${id}`, data)
-            .then(() => {
-                toast.success("Book Updated Successfully")
-                formRef.current.reset()
+            .then((res) => {
+                if (res.data.modifiedCount > 0) {
+                    toast.success("Book Updated Successfully")
+                    formRef.current.reset()
+                    navigate(`/book/${id}`)
+                }
             })
-            .catch(() => toast.warn("Failed to update book"));
+            .catch(() => toast.error("Failed to update book"));
     };
 
     return (

@@ -11,7 +11,7 @@ const BorrowedCard = ({ _id, bookDetails, requestDate, returnDate, handleReturnB
             <img
                 src={image}
                 alt={`${name} cover`}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-contain"
             />
             <div className="p-4">
                 <h2 className="text-lg font-bold text-gray-800">{name}</h2>
