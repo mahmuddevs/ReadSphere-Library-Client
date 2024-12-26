@@ -1,4 +1,4 @@
-const UpdateForm = ({ register, handleSubmit, errors, categories, formRef }) => {
+const UpdateForm = ({ register, handleSubmit, errors, categories, formRef, categoryLoading }) => {
     return (
         <div className="grid place-items-center">
             <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl my-8">
@@ -48,17 +48,23 @@ const UpdateForm = ({ register, handleSubmit, errors, categories, formRef }) => 
                         <label className="label">
                             <span className="label-text">Category</span>
                         </label>
-                        <select className="select select-bordered w-full max-w-xs" {...register("category", {
-                            required: "Category Is Required",
-                            validate: (value) => value !== "" || "Category Is Required"
-                        })}>
-                            <option value="">Select Category</option>
-                            {
-                                categories?.map((category, index) => {
-                                    return <option key={index + 1} value={category.categoryName}>{category.categoryName}</option>
-                                })
-                            }
-                        </select>
+                        {
+                            categoryLoading ? (
+                                <p className="text-sm pb-4">Loading...</p>
+                            ) : (
+                                <select className="select select-bordered w-full max-w-xs" {...register("category", {
+                                    required: "Category Is Required",
+                                    validate: (value) => value !== "" || "Category Is Required"
+                                })}>
+                                    <option value="">Select Category</option>
+                                    {
+                                        categories?.map((category, index) => {
+                                            return <option key={index + 1} value={category.categoryName}>{category.categoryName}</option>
+                                        })
+                                    }
+                                </select>
+                            )
+                        }
                         {errors.category && <p className="text-red-500 text-sm font-semibold">{errors.category.message}</p>}
                     </div>
                     <div className="form-control">

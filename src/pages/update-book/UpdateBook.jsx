@@ -12,6 +12,7 @@ const UpdateBook = () => {
     const { id } = useParams();
     const [book, setBook] = useState({});
     const [loading, setLoading] = useState(false);
+    const [categoryLoading, setCategoryLoading] = useState(false);
     const formRef = useRef()
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [categories, setCategories] = useState([]);
@@ -20,8 +21,12 @@ const UpdateBook = () => {
 
 
     useEffect(() => {
+        setCategoryLoading(true)
         axios.get('/categories.json')
-            .then(res => setCategories(res.data))
+            .then(res => {
+                setCategories(res.data)
+                setCategoryLoading(false)
+            })
             .catch(() => toast.error("Failed to load categories"));
     }, []);
 
@@ -67,6 +72,7 @@ const UpdateBook = () => {
                         categories={categories}
                         data={book}
                         formRef={formRef}
+                        categoryLoading={categoryLoading}
                     />
                 )}
             </main>

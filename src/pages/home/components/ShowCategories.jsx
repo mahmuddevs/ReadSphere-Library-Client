@@ -1,15 +1,21 @@
 import axios from "axios";
 import Category from "./Category";
 import { useEffect, useState } from "react";
+import Spinner from "../../../components/Spinner";
 
 const ShowCategories = () => {
     const [categories, setCategories] = useState([])
+    const [categoryLoading, setCategoryLoading] = useState(false);
     const limitedCategories = categories.slice(0, 4);
 
 
     useEffect(() => {
+        setCategoryLoading(true)
         axios.get('/categories.json')
-            .then(res => setCategories(res.data))
+            .then(res => {
+                setCategories(res.data)
+                setCategoryLoading(false)
+            })
     }, [])
 
     return (
@@ -20,13 +26,19 @@ const ShowCategories = () => {
                     Discover a wide variety of book categories tailored to every interest, from thrilling adventures to insightful history.
                 </p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
-                {
-                    limitedCategories?.map((category, index) => {
-                        return <Category key={index + 1} {...category} />
-                    })
-                }
-            </div>
+            {
+                categoryLoading ? (
+                    <Spinner small={true} />
+                ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
+                        {
+                            limitedCategories?.map((category, index) => {
+                                return <Category key={index + 1} {...category} />
+                            })
+                        }
+                    </div>
+                )
+            }
         </section>
     )
 }

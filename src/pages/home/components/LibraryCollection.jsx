@@ -9,7 +9,7 @@ const LibraryCollection = () => {
             .then(res => setCollections(res.data))
     }, [])
     return (
-        <section className='bg-gray-100 py-16'>
+        <section className='bg-gray-100 pu-20 md:py-40'>
             <div className="w-11/12 md:container mx-auto ">
                 <div className="border-b mb-5 flex justify-between text-sm">
                     <div className="text-indigo-600 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase">
