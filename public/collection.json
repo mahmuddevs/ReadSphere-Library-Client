@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "Mystery in the Woods",
+        "category": "Mystery",
+        "description": "Follow a thrilling investigation into a series of enigmatic events deep within an ancient forest.",
+        "image": "https://i.ibb.co.com/2MC09t0/mystry-in-the-woods.jpg",
+        "added": "3 days ago",
+        "reviews": 12
+    },
+    {
+        "id": 2,
+        "title": "The Wonders of the Universe",
+        "category": "Science",
+        "description": "Explore the secrets of the cosmos with stunning visuals and captivating insights.",
+        "image": "https://i.ibb.co.com/7CcjCBH/wonders-of-the-universe.jpg",
+        "added": "5 days ago",
+        "reviews": 23
+    },
+    {
+        "id": 3,
+        "title": "The Art of Mindfulness",
+        "category": "Self-Help",
+        "description": "A practical guide to achieving mindfulness and inner peace in a fast-paced world.",
+        "image": "https://i.ibb.co.com/4pWzSPg/art-of-mindfulness.jpg",
+        "added": "1 week ago",
+        "reviews": 34
+    },
+    {
+        "id": 4,
+        "title": "The Enigma of Ancient Civilizations",
+        "category": "History",
+        "description": "Delve into the mysterious cultures and achievements of lost civilizations that shaped human history.",
+        "image": "https://i.ibb.co.com/2qgygSL/eac.jpg",
+        "added": "2 weeks ago",
+        "reviews": 22
+    }
+]

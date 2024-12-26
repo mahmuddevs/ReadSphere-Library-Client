@@ -18,7 +18,7 @@ const useAxiosSecure = () => {
                 console.log('Unauthorized Activity')
                 logOut().then(() => {
                     console.log("User Logged Out");
-                    navigate('/');
+                    navigate('/login');
                 })
                     .catch(() => {
                         console.log("Something Went Wrong");
