@@ -4,8 +4,8 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
 const instance = axios.create({
-    // baseURL: 'http://localhost:3000',
-    baseURL: 'https://library-management-one-gray.vercel.app/',
+    baseURL: 'http://localhost:3000',
+    // baseURL: 'https://library-management-one-gray.vercel.app/',
     withCredentials: true
 });
 const useAxiosSecure = () => {
@@ -19,7 +19,7 @@ const useAxiosSecure = () => {
                 console.log('Unauthorized Activity')
                 logOut().then(() => {
                     console.log("User Logged Out");
-                    navigate('/login');
+                    navigate('/auth/login');
                 })
                     .catch(() => {
                         console.log("Something Went Wrong");

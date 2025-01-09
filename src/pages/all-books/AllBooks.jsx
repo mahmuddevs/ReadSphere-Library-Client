@@ -79,7 +79,7 @@ const AllBooks = () => {
                                         <>
                                             {
                                                 cardView ? (
-                                                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                                                    <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
                                                         {books?.map((book) => {
                                                             return <BookCard key={book._id} {...book} />
                                                         })}

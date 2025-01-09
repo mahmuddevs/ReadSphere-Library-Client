@@ -23,7 +23,7 @@ const Header = () => {
     )
 
     return (
-        <div className="bg-base-200">
+        <div className="bg-base-200/60 shadow-xl fixed top-0 z-50 w-full">
             <div className="container mx-auto bg-transparent">
                 <div className="navbar">
                     <div className="navbar-start">

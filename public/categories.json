@@ -1,34 +1,42 @@
 [
     {
         "categoryName": "Fiction",
-        "description": "Explore imaginative and compelling stories that take you to fantastical worlds."
+        "description": "Explore imaginative and compelling stories that take you to fantastical worlds.",
+        "icon": "https://img.icons8.com/color/50/deep-space-9.png"
     },
     {
         "categoryName": "Thriller",
-        "description": "Dive into fast-paced, suspenseful narratives filled with twists and turns."
+        "description": "Dive into fast-paced, suspenseful narratives filled with twists and turns.",
+        "icon": "https://img.icons8.com/hatch/50/thriller.png"
     },
     {
         "categoryName": "History",
-        "description": "Learn about significant events and figures that shaped the world we live in."
+        "description": "Learn about significant events and figures that shaped the world we live in.",
+        "icon": "https://img.icons8.com/ios/50/activity-history.png"
     },
     {
-        "categoryName": "Science Fiction",
-        "description": "Experience futuristic adventures and explore advanced technologies and alien worlds."
+        "categoryName": "Science-Fiction",
+        "description": "Experience futuristic adventures and explore advanced technologies and alien worlds.",
+        "icon": "https://img.icons8.com/ios/50/robot-3.png"
     },
     {
         "categoryName": "Drama",
-        "description": "Get immersed in emotionally gripping stories of human relationships and conflicts."
+        "description": "Get immersed in emotionally gripping stories of human relationships and conflicts.",
+        "icon": "https://img.icons8.com/external-goofy-line-kerismaker/50/external-Drama-movie-cinema-goofy-line-kerismaker.png"
     },
     {
         "categoryName": "Romance",
-        "description": "Indulge in heartwarming tales of love, relationships, and happy endings."
+        "description": "Indulge in heartwarming tales of love, relationships, and happy endings.",
+        "icon": "https://img.icons8.com/ios/50/novel--v1.png"
     },
     {
         "categoryName": "Fantasy",
-        "description": "Step into magical realms filled with mythical creatures and epic quests."
+        "description": "Step into magical realms filled with mythical creatures and epic quests.",
+        "icon": "https://img.icons8.com/ios/50/fantasy.png"
     },
     {
         "categoryName": "Self-Help",
-        "description": "Find guidance, motivation, and strategies for personal development and success."
+        "description": "Find guidance, motivation, and strategies for personal development and success.",
+        "icon": "https://img.icons8.com/pulsar-line/50/freedom-fist.png"
     }
 ]

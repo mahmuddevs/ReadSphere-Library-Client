@@ -86,7 +86,7 @@ const UpdateForm = ({ register, handleSubmit, errors, categories, formRef, categ
                         {errors.rating && <p className="text-red-500 text-sm font-semibold">{errors.rating.message}</p>}
                     </div>
                     <div className="form-control mt-6 col-span-2">
-                        <button type="submit" className="btn btn-primary">Add Book</button>
+                        <button type="submit" className="btn btn-primary">Update Book</button>
                     </div>
                 </form>
             </div>

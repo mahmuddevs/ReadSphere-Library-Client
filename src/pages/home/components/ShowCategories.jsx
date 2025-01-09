@@ -19,7 +19,7 @@ const ShowCategories = () => {
     }, [])
 
     return (
-        <section className="w-11/12 md:container mx-auto my-16">
+        <section className="w-11/12 md:container mx-auto my-16" id="categories">
             <div className="text-center space-y-4 my-8">
                 <h2 className="text-4xl font-bold text-gray-800">Explore Our Categories</h2>
                 <p className="text-lg text-gray-600">
@@ -30,7 +30,7 @@ const ShowCategories = () => {
                 categoryLoading ? (
                     <Spinner small={true} />
                 ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 ">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {
                             limitedCategories?.map((category, index) => {
                                 return <Category key={index + 1} {...category} />

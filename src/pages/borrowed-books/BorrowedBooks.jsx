@@ -34,7 +34,7 @@ const BorrowedBooks = () => {
         axiosBase.get(`/books/return-book/${id}`)
             .then((res) => {
                 if (res.data.deletedCount > 0) {
-                    const updatedData = borrowedBooks.filter((book) => { book._id !== id })
+                    const updatedData = borrowedBooks.filter((book) => book._id !== id)
                     setBorrowedBooks(updatedData)
                     toast.warn("Book Has Been Returned")
                 }

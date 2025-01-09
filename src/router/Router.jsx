@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/all-books',
-                element: <Private><AllBooks /></Private>
+                element: <AllBooks />
             },
             {
                 path: '/book/:id',
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/books/:category',
-                element: <Private><ByCategory /></Private>
+                element: <ByCategory />
             },
             {
                 path: '/book/update/:id',
