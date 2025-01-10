@@ -1,9 +1,18 @@
 const AddBookForm = ({ register, handleSubmit, errors, categories, formRef }) => {
     return (
         <div className="grid place-items-center">
-            <div className="card bg-base-100 w-full max-w-2xl shrink-0 shadow-2xl my-8">
+            <div className="card bg-base-100 w-full max-w-4xl shrink-0 shadow-2xl my-8">
                 <form ref={formRef} onSubmit={handleSubmit} className="card-body grid grid-cols-2">
-                    <div className="form-control col-span-2">
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Name</span>
+                        </label>
+                        <input type="text" {...register("name", {
+                            required: "Name Is Required"
+                        })} placeholder="Name" className="input input-bordered" />
+                        {errors.name && <p className="text-red-500 text-sm font-semibold">{errors.name.message}</p>}
+                    </div>
+                    <div className="form-control">
                         <label className="label">
                             <span className="label-text">Image</span>
                         </label>
@@ -14,12 +23,12 @@ const AddBookForm = ({ register, handleSubmit, errors, categories, formRef }) =>
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="label-text">Author Name</span>
                         </label>
-                        <input type="text" {...register("name", {
-                            required: "Name Is Required"
-                        })} placeholder="Name" className="input input-bordered" />
-                        {errors.name && <p className="text-red-500 text-sm font-semibold">{errors.name.message}</p>}
+                        <input type="text" {...register("author", {
+                            required: "Author Is Required"
+                        })} placeholder="Author Name" className="input input-bordered" />
+                        {errors.author && <p className="text-red-500 text-sm font-semibold">{errors.author.message}</p>}
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -35,20 +44,11 @@ const AddBookForm = ({ register, handleSubmit, errors, categories, formRef }) =>
                         })} placeholder="Quantity" className="input input-bordered" />
                         {errors.quantity && <p className="text-red-500 text-sm font-semibold">{errors.quantity.message}</p>}
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Author Name</span>
-                        </label>
-                        <input type="text" {...register("author", {
-                            required: "Author Is Required"
-                        })} placeholder="Author Name" className="input input-bordered" />
-                        {errors.author && <p className="text-red-500 text-sm font-semibold">{errors.author.message}</p>}
-                    </div>
-                    <div className="form-control self-end">
+                    <div className="form-control self-end w-full">
                         <label className="label">
                             <span className="label-text">Category</span>
                         </label>
-                        <select className="select select-bordered w-full max-w-xs" {...register("category", {
+                        <select className="select select-bordered w-full" {...register("category", {
                             required: "Category Is Required",
                             validate: (value) => value !== "" || "Category Is Required"
                         })}>
@@ -60,15 +60,6 @@ const AddBookForm = ({ register, handleSubmit, errors, categories, formRef }) =>
                             }
                         </select>
                         {errors.category && <p className="text-red-500 text-sm font-semibold">{errors.category.message}</p>}
-                    </div>
-                    <div className="form-control col-span-2">
-                        <label className="label">
-                            <span className="label-text">Short Description</span>
-                        </label>
-                        <textarea className="textarea textarea-bordered h-32" {...register("description", {
-                            required: "Description Is Required"
-                        })} placeholder="Write Short Description About the Book"></textarea>
-                        {errors.description && <p className="text-red-500 text-sm font-semibold">{errors.description.message}</p>}
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -88,7 +79,17 @@ const AddBookForm = ({ register, handleSubmit, errors, categories, formRef }) =>
                         })} placeholder="Rating" className="input input-bordered" />
                         {errors.rating && <p className="text-red-500 text-sm font-semibold">{errors.rating.message}</p>}
                     </div>
-                    <div className="form-control col-span-2">
+                    <div className="form-control col-span-2 md:col-span-1">
+                        <label className="label">
+                            <span className="label-text">Short Description</span>
+                        </label>
+                        <textarea className="textarea textarea-bordered h-32" {...register("description", {
+                            required: "Description Is Required"
+                        })} placeholder="Write Short Description About the Book"></textarea>
+                        {errors.description && <p className="text-red-500 text-sm font-semibold">{errors.description.message}</p>}
+                    </div>
+
+                    <div className="form-control col-span-2 md:col-span-1">
                         <label className="label">
                             <span className="label-text">Book Content</span>
                         </label>

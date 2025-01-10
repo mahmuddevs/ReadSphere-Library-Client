@@ -8,6 +8,7 @@ import Spinner from "../../components/Spinner"
 import BorrowModal from "./components/BorrowModal"
 import { useForm } from "react-hook-form"
 import useAuth from "../../hook/useAuth"
+import SimilarBooks from "./components/SimilarBooks"
 
 const BookDetails = () => {
     const { id } = useParams()
@@ -72,66 +73,86 @@ const BookDetails = () => {
             .catch(() => toast.warn("Failed to Borrowed Book"));
     };
 
+
     return (
         <>
             <Helmet>
                 <title>{`${book?.name}`} - ReadSphere</title>
             </Helmet>
-            <main className="w-11/12 md:container mx-auto">
+            <div className="w-11/12 md:container mx-auto mb-14">
                 {loading ? (
                     <Spinner />
                 ) : (
                     <>
-                        <div className="container mx-auto p-6">
-                            <div className="flex flex-col md:flex-row bg-white shadow-lg items-center rounded-lg overflow-hidden">
-                                <div className="w-full md:w-1/3">
+                        <div className="mx-auto">
+                            <div className="lg:flex lg:items-start md:justify-between gap-8">
+                                <div className="md:w-3/12">
                                     <img
+                                        className="rounded-lg shadow-2xl h-96 border p-4 mx-auto"
                                         src={book?.image}
-                                        alt={book?.name}
-                                        className="w-full h-full object-cover"
+                                        alt="Atomic Habits book cover"
                                     />
                                 </div>
-                                <div className="w-full md:w-2/3 p-6 flex flex-col">
-                                    <h1 className="text-3xl font-bold text-gray-800 mb-4">
-                                        {book?.name}
+                                <div className="md:w-9/12 grid gap-6">
+                                    <div className="text-sm font-semibold text-indigo-600 uppercase tracking-wide">
+                                        {book?.category}
+                                    </div>
+                                    <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+                                        Atomic Habits
                                     </h1>
-                                    <div className="text-gray-600 mb-4">
-                                        <span className="font-semibold">Author:</span> {book?.author}
-                                    </div>
-                                    <div className="text-gray-600 mb-4">
-                                        <span className="font-semibold">Category:</span> {book?.category}
-                                    </div>
-                                    <div className="text-gray-600 mb-4">
-                                        <span className="font-semibold">Quantity:</span> {book?.quantity}
-                                    </div>
-                                    <div className="text-gray-600 mb-4">
-                                        <span className="font-semibold">Rating:</span>
-                                        <ReactStars
-                                            count={5}
-                                            value={book?.rating || 0}
-                                            edit={false}
-                                            size={24}
-                                            activeColor="#ffd700"
-                                        />
-                                    </div>
-                                    <div className="text-gray-600 mb-6">
-                                        <span className="font-semibold">Description:</span> {book?.description}
-                                    </div>
-                                    <p className="text-gray-600 italic">
-                                        {book?.bookContent}
+                                    <p className="text-xl text-gray-500">
+                                        by James Clear
                                     </p>
-                                    <BorrowModal modalRef={modalRef}
-                                        register={register}
-                                        handleSubmit={handleSubmit(onSubmit)}
-                                        errors={errors}
-                                        formRef={formRef} />
-                                    <button disabled={borrowed || book?.quantity === 0} onClick={handleShowModal} className="btn btn-primary w-32 text-base mt-6">Borrow</button>
+                                    <div className="flex items-center">
+                                        <div className="flex items-center">
+                                            <ReactStars
+                                                count={5}
+                                                value={book?.rating || 0}
+                                                edit={false}
+                                                size={24}
+                                                activeColor="#ffd700"
+                                            />
+                                            <span className="ml-2 text-gray-600 text-lg">{book?.rating}</span>
+                                        </div>
+
+                                        {book?.quantity ? (
+                                            <>
+                                                <span className="ml-4 px-3 py-1 text-sm font-semibol">Quantity:</span> {book?.quantity}
+                                            </>
+                                        ) : (
+                                            <span className="ml-4 px-3 py-1 text-sm font-semibold text-red-800 bg-red-100 rounded-full">
+                                                Out of stock
+                                            </span>
+                                        )}
+                                    </div>
+                                    <div className="flex flex-col sm:flex-row">
+                                        <BorrowModal modalRef={modalRef}
+                                            register={register}
+                                            handleSubmit={handleSubmit(onSubmit)}
+                                            errors={errors}
+                                            formRef={formRef} />
+                                        <button disabled={borrowed || book?.quantity === 0} onClick={handleShowModal} className="btn btn-primary w-32 text-base">Borrow</button>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-gray-900">Description:</h3>
+                                        <p className="text-xl text-gray-700">
+                                            {book?.description}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold text-gray-900">About the Book</h3>
+                                        <div className="">
+                                            <p className="text-xl text-gray-700 leading-relaxed">
+                                                {book?.bookContent}
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div >
-                        </div >
+                            </div>
+                        </div>
                     </>
                 )}
-            </main >
+            </div >
         </>
     )
 }

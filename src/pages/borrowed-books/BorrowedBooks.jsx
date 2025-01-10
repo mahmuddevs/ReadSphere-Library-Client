@@ -4,9 +4,9 @@ import useAxiosSecure from "../../hook/useAxiosSecure"
 import NoData from "../../components/NoData"
 import { toast } from 'react-toastify'
 import useAuth from "../../hook/useAuth"
-import BorrowedCard from "./components/BorrowedCard"
 import Spinner from "../../components/Spinner"
 import useAxios from "../../hook/useAxios"
+import BorrowedTable from "./components/BorrowedTable"
 
 const BorrowedBooks = () => {
     const [borrowedBooks, setBorrowedBooks] = useState([])
@@ -49,7 +49,7 @@ const BorrowedBooks = () => {
             <Helmet>
                 <title>Borrowed Books - ReadSphere</title>
             </Helmet>
-            <main className="w-11/12 md:container mx-auto mb-16">
+            <div className="w-11/12 md:container mx-auto mb-16">
                 <section className="text-center my-16">
                     <h2 className="text-3xl">My Borrowed Books</h2>
                 </section>
@@ -61,11 +61,28 @@ const BorrowedBooks = () => {
                             {
                                 borrowedBooks.length > 0 ? (
                                     <>
-                                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                                            {
-                                                borrowedBooks?.map((book) => {
-                                                    return <BorrowedCard key={book._id} {...book} handleReturnBook={handleReturnBook} />
-                                                })}
+                                        <div className="overflow-x-auto">
+                                            <table className="table table-zebra w-full border-collapse border border-gray-300">
+                                                <thead>
+                                                    <tr>
+                                                        <th className="px-4 py-2">Cover</th>
+                                                        <th className="px-4 py-2">Book Details</th>
+                                                        <th className="px-4 py-2">Rating</th>
+                                                        <th className="px-4 py-2">Borrowed Date</th>
+                                                        <th className="px-4 py-2">Return Date</th>
+                                                        <th className="px-4 py-2">Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {borrowedBooks?.map((book) => (
+                                                        <BorrowedTable
+                                                            key={book._id}
+                                                            {...book}
+                                                            handleReturnBook={handleReturnBook}
+                                                        />
+                                                    ))}
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </>
                                 ) : (
@@ -75,7 +92,7 @@ const BorrowedBooks = () => {
                         </>
                     )}
                 </section>
-            </main >
+            </div >
         </>
     )
 }

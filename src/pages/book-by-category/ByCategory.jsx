@@ -30,7 +30,7 @@ const ByCategory = () => {
             <Helmet>
                 <title>{`${category}`} - ReadSphere</title>
             </Helmet>
-            <main className="w-11/12 md:container mx-auto">
+            <div className="w-11/12 md:container mx-auto">
                 <section className="text-center my-16">
                     <h2 className="text-3xl">{category}</h2>
                 </section>
@@ -53,7 +53,7 @@ const ByCategory = () => {
                         </>
                     )}
                 </section>
-            </main>
+            </div>
         </>
     )
 }

@@ -48,61 +48,92 @@ const Login = () => {
             })
     }
 
+
+
     return (
         <>
             <Helmet>
                 <title>Login - ReadSphere</title>
             </Helmet>
-            <div className="sm:hero min-h-[70vh]">
-                <div className="w-full hero-content flex-col lg:flex-row-reverse">
-                    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                        <h2 className="text-center text-inherit text-3xl font-bold pt-8">Login</h2>
-                        <div className="card-body">
-                            <form onSubmit={handleLogin}>
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">Email</span>
-                                    </label>
-                                    <input name="email" type="email" placeholder="email" className="input input-bordered" ref={emailRef} required />
-                                </div>
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text">Password</span>
-                                    </label>
-                                    <div className="relative">
-                                        <input name="password" type={showPass ? 'text' : 'password'}
-                                            placeholder="password" className="input input-bordered w-full" required />
-                                        <div onClick={handleShowPass} className="absolute top-1/2 transform -translate-y-1/2 right-4">
-                                            {
-                                                showPass ? <FaEyeSlash className="text-lg" />
-                                                    :
-                                                    <FaEye className="text-lg" />
-                                            }
-                                        </div>
-                                    </div>
-                                    <label className="label">
-                                        <a className="label-text hover:underline cursor-pointer">Forgot Password?</a>
-                                    </label>
-                                    <label className="label text-sm">
-                                        Don't Have an Account?
-                                        <Link to='/auth/register' className="label-text-alt link link-hover">Register</Link>
-                                    </label>
-                                </div>
-                                <div className="form-control">
-                                    <button className="btn btn-primary">Login</button>
-                                </div>
-                            </form>
-                            <div className="text-center text-md font-semi">Or SignIn With</div>
+            <div className="flex justify-center items-center">
+                <div className="card w-full max-w-4xl bg-white  shadow-xl flex flex-col md:flex-row rounded-lg md:pt-0">
+                    <div className="hidden md:flex flex-col justify-center items-center text-center text-white gap-4 rounded-s-xl bg-black/40 bg-blend-overlay"
+                        style={{ backgroundImage: `url('/images/login.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                        <h3 className="text-3xl font-semibold">Welcome Back</h3>
+                        <p className="w-10/12 mx-auto">
+                            Please log in using your personal information and stay connected.
+                        </p>
+                    </div>
+
+                    <div className="w-full md:w-1/2 p-8 flex flex-col justify-center">
+                        <h2 className="text-center text-2xl font-bold mb-6">Login</h2>
+                        <form onSubmit={handleLogin} className="space-y-4">
                             <div className="form-control">
-                                <button onClick={handleGoogleLogin} className="btn btn-ghost border-2 border-gray-400">
-                                    <FcGoogle className="w-8 h-8" />
-                                    Google
-                                </button>
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input
+                                    name="email"
+                                    type="email"
+                                    placeholder="email"
+                                    className="input input-bordered"
+                                    ref={emailRef}
+                                    required
+                                />
                             </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <div className="relative">
+                                    <input
+                                        name="password"
+                                        type={showPass ? "text" : "password"}
+                                        placeholder="password"
+                                        className="input input-bordered w-full"
+                                        required
+                                    />
+                                    <div
+                                        onClick={handleShowPass}
+                                        className="absolute top-1/2 transform -translate-y-1/2 right-4 cursor-pointer"
+                                    >
+                                        {showPass ? (
+                                            <FaEyeSlash className="text-lg" />
+                                        ) : (
+                                            <FaEye className="text-lg" />
+                                        )}
+                                    </div>
+                                </div>
+                                <label className="label">
+                                    <a className="label-text hover:underline cursor-pointer">
+                                        Forgot Password?
+                                    </a>
+                                </label>
+                                <label className="label text-sm">
+                                    Don't Have an Account?{" "}
+                                    <Link to="/auth/register" className="label-text-alt link link-hover">
+                                        Register
+                                    </Link>
+                                </label>
+                            </div>
+                            <div className="form-control">
+                                <button className="btn btn-primary">Login</button>
+                            </div>
+                        </form>
+                        <div className="text-center text-sm mt-4">Or Sign In With</div>
+                        <div className="form-control mt-2">
+                            <button
+                                onClick={handleGoogleLogin}
+                                className="btn btn-ghost border border-gray-400"
+                            >
+                                <FcGoogle className="w-8 h-8" />
+                                Google
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+
         </>
     )
 }

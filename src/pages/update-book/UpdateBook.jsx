@@ -61,7 +61,7 @@ const UpdateBook = () => {
             <Helmet>
                 <title>Update Book - ReadSphere</title>
             </Helmet>
-            <main>
+            <div>
                 {loading ? (
                     <Spinner />
                 ) : (
@@ -75,7 +75,7 @@ const UpdateBook = () => {
                         categoryLoading={categoryLoading}
                     />
                 )}
-            </main>
+            </div>
         </>
     );
 }

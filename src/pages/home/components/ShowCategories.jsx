@@ -19,8 +19,8 @@ const ShowCategories = () => {
     }, [])
 
     return (
-        <section className="w-11/12 md:container mx-auto my-16" id="categories">
-            <div className="text-center space-y-4 my-8">
+        <section className="w-11/12 md:container mx-auto my-14 md:my-24" id="categories">
+            <div className="text-center space-y-4 mb-8">
                 <h2 className="text-4xl font-bold text-gray-800">Explore Our Categories</h2>
                 <p className="text-lg text-gray-600">
                     Discover a wide variety of book categories tailored to every interest, from thrilling adventures to insightful history.

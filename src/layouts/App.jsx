@@ -1,12 +1,16 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation, useParams } from "react-router-dom"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 
 const App = () => {
+    const { pathname } = useLocation()
+
     return (
         <>
             <Header />
-            <Outlet />
+            <main className={`${pathname === '/' ? '' : 'mt-28'}`}>
+                <Outlet />
+            </main>
             <Footer />
         </>
     )

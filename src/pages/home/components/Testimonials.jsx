@@ -38,9 +38,9 @@ const Testimonials = () => {
         },
     ];
     return (
-        <div className="w-11/12 md:container mx-auto my-20 md:my-40 text-center">
-            <div className="text-center space-y-4 my-8">
-                <h2 className="text-4xl font-bold text-gray-800">Reader Reviews & Testimonials</h2>
+        <div className="w-11/12 md:container mx-auto my-14 md:my-24 text-center">
+            <div className="text-center space-y-4 mb-8">
+                <h2 className="text-4xl font-bold text-gray-800">Reviews & Testimonials</h2>
                 <p className="text-lg text-gray-600">
                     Hear from our readers about their favorite books and experiences.
                 </p>
@@ -49,7 +49,7 @@ const Testimonials = () => {
                 {reviews.map((review) => (
                     <div
                         key={review.id}
-                        className="bg-white p-6 cursor-pointer rounded-lg drop-shadow-md hover:shadow-lg transition-shadow"
+                        className="bg-white p-6 rounded-lg drop-shadow-md hover:shadow-lg transition-shadow"
                     >
                         <div className="flex items-center mb-4">
                             <img

@@ -13,6 +13,8 @@ import Private from "./Private";
 import BookDetails from "../pages/book-details/BookDetails";
 import UpdateBook from "../pages/update-book/UpdateBook";
 import ByCategory from "../pages/book-by-category/ByCategory";
+import About from "../pages/about/About";
+import Contact from "../pages/contact/Contact";
 
 const router = createBrowserRouter([
     {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />
+            },
+            {
+                path: '/about-us',
+                element: <About />
+            },
+            {
+                path: '/contact-us',
+                element: <Contact />
             },
             {
                 path: '/all-books',
