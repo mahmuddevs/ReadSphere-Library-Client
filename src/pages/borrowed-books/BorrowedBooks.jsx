@@ -7,6 +7,7 @@ import useAuth from "../../hook/useAuth"
 import Spinner from "../../components/Spinner"
 import useAxios from "../../hook/useAxios"
 import BorrowedTable from "./components/BorrowedTable"
+import Swal from 'sweetalert2'
 
 const BorrowedBooks = () => {
     const [borrowedBooks, setBorrowedBooks] = useState([])
@@ -31,17 +32,34 @@ const BorrowedBooks = () => {
     }, [])
 
     const handleReturnBook = (id) => {
-        axiosBase.get(`/books/return-book/${id}`)
-            .then((res) => {
-                if (res.data.deletedCount > 0) {
-                    const updatedData = borrowedBooks.filter((book) => book._id !== id)
-                    setBorrowedBooks(updatedData)
-                    toast.warn("Book Has Been Returned")
-                }
-            })
-            .catch((err) => {
-                toast.error("Book Return Failed")
-            })
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Confirm!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosBase.get(`/books/return-book/${id}`)
+                    .then((res) => {
+                        if (res.data.deletedCount > 0) {
+                            const updatedData = borrowedBooks.filter((book) => book._id !== id)
+                            setBorrowedBooks(updatedData)
+                            Swal.fire({
+                                title: "The Book has been returned!",
+                                text: "You Can Borrow it Anytime.",
+                                icon: "success"
+                            });
+                        }
+                    })
+                    .catch((err) => {
+                        toast.error("Book Return Failed")
+                    })
+            }
+        });
+
     }
 
     return (
@@ -51,7 +69,7 @@ const BorrowedBooks = () => {
             </Helmet>
             <div className="w-11/12 md:container mx-auto mb-16">
                 <section className="text-center my-16">
-                    <h2 className="text-3xl">My Borrowed Books</h2>
+                    <h2 className="text-3xl text-primary-new">My Borrowed Books</h2>
                 </section>
                 <section>
                     {loading ? (

@@ -14,7 +14,7 @@ const LibraryCollection = () => {
         <section className='bg-gray-100 py-14 md:py-24'>
             <div className="w-11/12 md:container mx-auto">
                 <div className="border-b mb-5 flex justify-between text-sm">
-                    <div className="text-indigo-600 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase">
+                    <div className="text-primary-new flex items-center pb-2 pr-2 border-b-2 border-primary-new uppercase">
                         <svg
                             className="h-6 mr-3"
                             xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +27,7 @@ const LibraryCollection = () => {
                             Library Collection
                         </a>
                     </div>
-                    <Link to='/all-books' className="text-indigo-600 hover:text-indigo-800">
+                    <Link to='/all-books' className="text-primary-new hover:text-secondary-new">
                         See All
                     </Link>
                 </div>

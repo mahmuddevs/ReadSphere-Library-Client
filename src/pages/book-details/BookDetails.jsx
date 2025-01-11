@@ -85,7 +85,7 @@ const BookDetails = () => {
                 ) : (
                     <>
                         <div className="mx-auto">
-                            <div className="lg:flex lg:items-start md:justify-between gap-8">
+                            <div className="lg:flex lg:items-start md:justify-between gap-8 space-y-6">
                                 <div className="md:w-3/12">
                                     <img
                                         className="rounded-lg shadow-2xl h-96 border p-4 mx-auto"
@@ -93,11 +93,11 @@ const BookDetails = () => {
                                         alt="Atomic Habits book cover"
                                     />
                                 </div>
-                                <div className="md:w-9/12 grid gap-6">
-                                    <div className="text-sm font-semibold text-indigo-600 uppercase tracking-wide">
+                                <div className="md:w-9/12 grid gap-4">
+                                    <div className="text-sm font-semibold text-primary-new uppercase tracking-wide">
                                         {book?.category}
                                     </div>
-                                    <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+                                    <h1 className="text-2xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-4xl">
                                         Atomic Habits
                                     </h1>
                                     <p className="text-xl text-gray-500">
@@ -131,7 +131,7 @@ const BookDetails = () => {
                                             handleSubmit={handleSubmit(onSubmit)}
                                             errors={errors}
                                             formRef={formRef} />
-                                        <button disabled={borrowed || book?.quantity === 0} onClick={handleShowModal} className="btn btn-primary w-32 text-base">Borrow</button>
+                                        <button disabled={borrowed || book?.quantity === 0} onClick={handleShowModal} className="btn bg-primary-new hover:bg-secondary-new w-32 text-base text-white">Borrow</button>
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-bold text-gray-900">Description:</h3>

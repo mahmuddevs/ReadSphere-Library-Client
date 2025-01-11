@@ -9,20 +9,20 @@ const Banner = () => {
     return (
         <section className="relative">
             <div className="absolute inset-0 z-10 pointer-events-none flex flex-col gap-4 justify-center items-center text-white w-10/12 mx-auto lg:w-full text-center mt-12">
-                <h1 className="text-xl md:text-4xl font-bold">Welcome to Your Digital Library</h1>
+                <h1 className="text-3xl md:text-4xl font-bold">Welcome to Your Digital Library</h1>
                 <p className='text-sm md:text-base font-medium'>Discover, borrow, and manage books effortlessly with our Library Management System. Your gateway to endless knowledge.</p>
-                <a href='#categories' className='btn pointer-events-auto'>Explore</a>
+                <a href='#categories' className='btn text-white border-[#50ade9] bg-primary-new pointer-events-auto hover:bg-transparent rounded-full'>Explore More</a>
             </div>
 
             <Swiper
                 loop
                 modules={[Navigation, Autoplay]}
                 navigation={{
-                    enabled: window.innerWidth > 640, // Enables navigation buttons only on larger screens
+                    enabled: window.innerWidth > 640,
                 }}
                 autoplay={{
-                    delay: 5000, // Delay in ms between each slide (5 seconds)
-                    disableOnInteraction: false, // Keeps autoplay even after user interaction
+                    delay: 5000,
+                    disableOnInteraction: false,
                 }}
                 className="mySwiper h-[65vh] md:h-[85vh]"
             >

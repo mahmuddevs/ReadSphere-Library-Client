@@ -86,7 +86,7 @@ const Register = () => {
             <div className="flex justify-center items-center">
                 <div className="flex flex-col-reverse md:flex-row bg-white  rounded-lg shadow-lg w-full max-w-5xl md:pt-0">
                     <div className="w-full md:w-1/2 px-8 py-10">
-                        <h2 className="text-2xl font-bold text-center mb-6 text-gray-800">
+                        <h2 className="text-2xl font-bold text-center mb-6 text-gray-800 text-primary-new">
                             Register
                         </h2>
                         <form onSubmit={handleRegister} className="space-y-4">
@@ -159,7 +159,7 @@ const Register = () => {
                                 )}
                             </div>
                             <div className="form-control">
-                                <button className="btn btn-primary">
+                                <button className="btn bg-primary-new hover:bg-secondary-new text-white">
                                     Register
                                 </button>
                             </div>
@@ -184,7 +184,7 @@ const Register = () => {
                     </div>
 
                     <div className="ms-auto rounded-e-xl bg-cover bg-no-repeat hidden md:flex flex-col justify-center items-center text-center text-white gap-4 bg-black/40 bg-blend-overlay" style={{ backgroundImage: `url('/images/register.jpg')` }}>
-                        <h3 className="text-3xl font-semibold">New Here? </h3>
+                        <h3 className="text-3xl font-semibold">New Here?</h3>
                         <p className="w-10/12 mx-auto">Please Feel Free To Sign Up and Stay Connected With Us.</p>
                     </div>
                 </div>

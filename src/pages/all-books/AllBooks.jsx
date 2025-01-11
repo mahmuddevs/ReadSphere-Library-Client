@@ -69,7 +69,7 @@ const AllBooks = () => {
             <div className="w-11/12 md:container mx-auto mb-16">
                 <section className="text-center my-8 md:my-16 space-y-2">
                     <h4 className="text-lg font-semibold">All Books</h4>
-                    <h2 className="text-2xl md:text-3xl">Explore Our Collection</h2>
+                    <h2 className="text-2xl md:text-3xl text-primary-new">Explore Our Collection</h2>
                     <p className="text-sm md:text-base">Browse through our extensive library of books across various genres and categories. Find your next great read today.</p>
                 </section>
                 <section>
@@ -79,11 +79,11 @@ const AllBooks = () => {
                             <option value='table'>Table</option>
                         </select>
                         <select onChange={handleSort} className="select select-bordered w-xs">
-                            <option value="" >Default</option>
+                            <option value="" >Default (Rating)</option>
                             <option value="1">Low to High</option>
                             <option value="-1">High to Low</option>
                         </select>
-                        <button onClick={handleAvailableBooks} className="btn btn-accent">Availables</button>
+                        <button onClick={handleAvailableBooks} className="btn bg-primary-new hover:bg-secondary-new text-white">Availables</button>
                     </div>
                     {loading ? (
                         <Spinner />

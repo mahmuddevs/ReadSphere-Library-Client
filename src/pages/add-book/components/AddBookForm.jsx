@@ -100,7 +100,7 @@ const AddBookForm = ({ register, handleSubmit, errors, categories, formRef }) =>
                     </div>
 
                     <div className="form-control mt-6 col-span-2">
-                        <button type="submit" className="btn btn-primary">Add Book</button>
+                        <button type="submit" className="btn bg-primary-new hover:bg-secondary-new text-white">Add Book</button>
                     </div>
                 </form>
             </div>

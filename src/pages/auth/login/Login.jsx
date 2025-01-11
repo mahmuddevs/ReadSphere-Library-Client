@@ -66,7 +66,7 @@ const Login = () => {
                     </div>
 
                     <div className="w-full md:w-1/2 p-8 flex flex-col justify-center">
-                        <h2 className="text-center text-2xl font-bold mb-6">Login</h2>
+                        <h2 className="text-center text-2xl font-bold mb-6 text-primary-new">Login</h2>
                         <form onSubmit={handleLogin} className="space-y-4">
                             <div className="form-control">
                                 <label className="label">
@@ -117,7 +117,7 @@ const Login = () => {
                                 </label>
                             </div>
                             <div className="form-control">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn bg-primary-new hover:bg-secondary-new text-white">Login</button>
                             </div>
                         </form>
                         <div className="text-center text-sm mt-4">Or Sign In With</div>

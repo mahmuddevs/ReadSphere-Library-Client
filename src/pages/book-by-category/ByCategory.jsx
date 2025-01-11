@@ -32,7 +32,7 @@ const ByCategory = () => {
             </Helmet>
             <div className="w-11/12 md:container mx-auto">
                 <section className="text-center my-16">
-                    <h2 className="text-3xl">{category}</h2>
+                    <h2 className="text-2xl md:text-3xl text-primary-new">{category}</h2>
                 </section>
                 <section className="my-16">
                     {loading ? (

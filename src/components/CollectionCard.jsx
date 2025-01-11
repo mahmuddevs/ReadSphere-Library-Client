@@ -19,7 +19,7 @@ const CollectionCard = ({ _id, image, category, name, bookContent }) => {
                     <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25"></div>
                 </a>
                 <Link to={`/books/${category}`}>
-                    <div className="text-xs absolute top-0 right-0 bg-indigo-600 px-4 py-2 text-white mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                    <div className="text-xs absolute top-0 right-0 bg-primary-new px-4 py-2 text-white mt-3 mr-3 hover:bg-white hover:text-primary-new transition duration-500 ease-in-out">
                         {category}
                     </div>
                 </Link>
@@ -27,7 +27,7 @@ const CollectionCard = ({ _id, image, category, name, bookContent }) => {
             <div className="px-6 py-4 flex-grow">
                 <a
                     href="#"
-                    className="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out mb-2"
+                    className="font-medium text-lg inline-block hover:text-primary-new transition duration-500 ease-in-out mb-2"
                 >
                     {name}
                 </a>
@@ -36,7 +36,7 @@ const CollectionCard = ({ _id, image, category, name, bookContent }) => {
                 </p>
             </div>
             <div className="px-6 pb-4">
-                <Link to={`/book/${_id}`} className="btn btn-primary btn-sm text-center bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition duration-500 ease-in-out">
+                <Link to={`/book/${_id}`} className="btn btn-sm text-center bg-primary-new text-white py-2 rounded-lg hover:bg-accent-new/90 transition duration-500 ease-in-out">
                     Read More
                 </Link>
             </div>

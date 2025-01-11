@@ -36,7 +36,7 @@ const AddBooks = () => {
             </Helmet>
             <main>
                 <div className="w-11/12 md:container mx-auto text-center">
-                    <h2 className="text-3xl">Add Book</h2>
+                    <h2 className="text-3xl text-primary-new">Add Book</h2>
                 </div>
                 <AddBookForm register={register} handleSubmit={handleSubmit(onSubmit)} errors={errors} categories={categories} formRef={formRef} />
             </main>

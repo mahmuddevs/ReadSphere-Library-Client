@@ -26,7 +26,7 @@ const Header = () => {
     )
 
     return (
-        <div className="bg-base-200/60 shadow-xl fixed top-0 z-50 w-full">
+        <div className="bg-primary-new/90 shadow-xl fixed top-0 z-50 w-full">
             <div className="container mx-auto bg-transparent">
                 <div className="navbar justify-between items-center">
                     <div className="">
@@ -37,7 +37,7 @@ const Header = () => {
                                     className="h-5 w-5"
                                     fill="none"
                                     viewBox="0 0 24 24"
-                                    stroke="currentColor">
+                                    stroke="white">
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
@@ -51,10 +51,10 @@ const Header = () => {
                                 {navItems}
                             </ul>
                         </div>
-                        <Link to='/' className="text-xl ms-4 md:ms-0 font-semibold">ReadSphere</Link>
+                        <Link to='/' className="text-xl ms-4 md:ms-0 font-semibold text-white">ReadSphere</Link>
                     </div>
-                    <div className="space-x-2">
-                        <ul className="menu-horizontal  hidden lg:flex px-1 gap-6">
+                    <div className="space-x-4">
+                        <ul className="menu-horizontal items-center  hidden lg:flex px-1 gap-6  text-white">
                             {navItems}
                         </ul>
                         {user ?
@@ -75,7 +75,7 @@ const Header = () => {
                                                 <p className="font-bold !text-sm">{user?.displayName}</p>
                                                 <button
                                                     onClick={handleLogout}
-                                                    className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                                                    className="px-4 py-2 bg-primary-new text-white rounded-lg hover:bg-secondary-new"
                                                 >
                                                     Logout
                                                 </button>
@@ -85,10 +85,13 @@ const Header = () => {
                                 </div>
                             </div>
                             :
-                            <div className="space-x-4">
-                                <Link to='/auth/login' className="btn btn-sm">Login</Link>
-                                <Link to='/auth/register' className="btn btn-sm">Register</Link>
-                            </div>
+                            <>
+                                <ul className="menu-horizontal items-center flex px-1 gap-6  text-white">
+                                    <li><NavLink to='/auth/login'>Login</NavLink></li>
+                                    <li><NavLink to='/auth/register'>Register</NavLink></li>
+                                </ul>
+
+                            </>
                         }
                     </div>
                 </div>

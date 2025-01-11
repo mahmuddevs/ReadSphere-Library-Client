@@ -36,9 +36,9 @@ const BorrowedTable = ({ _id, bookDetails, requestDate, returnDate, handleReturn
             <td className="border border-gray-300 px-4 py-2 text-center">
                 <button
                     onClick={() => handleReturnBook(_id)}
-                    className="btn btn-sm btn-primary"
+                    className="btn btn-sm bg-primary-new hover:bg-secondary-new text-white"
                 >
-                    Return Book
+                    Return
                 </button>
             </td>
         </tr>

@@ -27,25 +27,25 @@ const Testimonials = () => {
             image:
                 "https://randomuser.me/api/portraits/women/54.jpg",
         },
-        {
-            id: 4,
-            name: "Michael Lee",
-            review:
-                "History buffs will enjoy 'The Enigma of Ancient Civilizations'. I learned so much about ancient cultures.",
-            rating: 4,
-            image:
-                "https://randomuser.me/api/portraits/men/62.jpg",
-        },
+        // {
+        //     id: 4,
+        //     name: "Michael Lee",
+        //     review:
+        //         "History buffs will enjoy 'The Enigma of Ancient Civilizations'. I learned so much about ancient cultures.",
+        //     rating: 4,
+        //     image:
+        //         "https://randomuser.me/api/portraits/men/62.jpg",
+        // },
     ];
     return (
-        <div className="w-11/12 md:container mx-auto my-14 md:my-24 text-center">
+        <section className="w-11/12 md:container mx-auto my-14 md:my-24 text-center">
             <div className="text-center space-y-4 mb-8">
-                <h2 className="text-4xl font-bold text-gray-800">Reviews & Testimonials</h2>
-                <p className="text-lg text-gray-600">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Reviews & Testimonials</h2>
+                <p className="text-base md:text-lg text-gray-600">
                     Hear from our readers about their favorite books and experiences.
                 </p>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {reviews.map((review) => (
                     <div
                         key={review.id}
@@ -80,7 +80,7 @@ const Testimonials = () => {
                     </div>
                 ))}
             </div>
-        </div>
+        </section>
     )
 }
 

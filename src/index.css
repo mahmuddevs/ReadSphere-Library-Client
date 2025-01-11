@@ -11,3 +11,15 @@ html {
 body {
   font-family: "Poppins", serif;
 }
+
+.active {
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 6px;
+}
+
+
+.dropdown a.active {
+  background-color: #50ade9 !important;
+  color: white !important;
+}
